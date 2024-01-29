@@ -17,12 +17,13 @@ public class DigimonRepository {
 
         File file = new File(filePath);
         if (!file.exists()) {
-            digimons.add(new Digimon(1, "코로몬", 0));
-            digimons.add(new Digimon(2, "뿔몬", 0));
-            digimons.add(new Digimon(3, "모티몬", 0));
+            digimons.add(new Digimon(1, "코로몬", Level.BABY.ordinal()));
+            digimons.add(new Digimon(2, "뿔몬", Level.BABY.ordinal()));
+            digimons.add(new Digimon(3, "모티몬", Level.BABY.ordinal()));
 
             saveDigimons(digimons);
         }
+        loadDigimons(digimons);
     }
 
     private void saveDigimons(ArrayList<Digimon> digimons) {
@@ -45,7 +46,31 @@ public class DigimonRepository {
         }
     }
 
+    private void loadDigimons(ArrayList<Digimon> digimons) {
+        ObjectInputStream ois = null;
+
+        try {
+            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filePath)));
+
+            while(true){
+                digimonList.add((Digimon) (ois.readObject()));
+            }
+        } catch (EOFException e){
+            System.out.println("디지몬 정보 모두 로딩됨...");
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (ois!=null) ois.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public ArrayList<Digimon> selectedDigimon() {
-        return null;
+        return digimonList;
     }
 }

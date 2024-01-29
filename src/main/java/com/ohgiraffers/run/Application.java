@@ -20,11 +20,18 @@ public class Application {
                 case 0:
                     System.out.println("프로그램을 종료합니다.");
                     return;
-                case 1:
+                case 1:                         // 코로몬
                     ds.selectDigimon();
                     flag = false;
                     break;
-
+                case 2:                         // 뿔몬
+                    ds.selectDigimon();
+                    flag = false;
+                    break;
+                case 3:                         // 모티몬
+                    ds.selectDigimon();
+                    flag = false;
+                    break;
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
 
@@ -33,16 +40,17 @@ public class Application {
 
         while (true) {
             System.out.println("========= 디지몬 키우기 =========");
+            System.out.println("0. 프로그램 종료");
             System.out.println("1. 디지몬 선택하기");
-            System.out.println("2. 디지몬 선택하기");
-            System.out.println("1. 디지몬 선택하기");
-            System.out.println("1. 디지몬 선택하기");
-            System.out.println("9. 프로그램 종료");
+            System.out.println("2. 디지몬 밥 주기");
             System.out.print("메뉴를 선택해 주세요: ");
 
             int input = sc.nextInt();
             switch (input) {
                 case 1:
+                    ds.selectDigimon();
+                    break;
+                case 2:
                     ds.selectDigimon();
                     break;
                 case 9:
