@@ -1,6 +1,7 @@
 package com.ohgiraffers.repository;
 
 import com.ohgiraffers.aggregate.Digimon;
+import com.ohgiraffers.aggregate.Food;
 import com.ohgiraffers.aggregate.Level;
 
 import java.io.*;
@@ -72,5 +73,17 @@ public class DigimonRepository {
 
     public ArrayList<Digimon> selectedDigimon() {
         return digimonList;
+    }
+
+    public Digimon selectDigimon(int digiNo){
+        for (Digimon d: digimonList){
+            if (d.getId() == digiNo) return d;
+        }
+        return null;
+    }
+
+    public boolean feedDigimon(int digiNo, Food selectedFood) {
+        selectDigimon(digiNo).setFeedGage(selectedFood.getPoint());
+        return true;
     }
 }
