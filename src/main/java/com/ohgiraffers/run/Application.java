@@ -97,31 +97,30 @@ public class Application {
         }
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.println("내 디지몬: " + myDigimon.getName());
             System.out.println("========= 디지몬 키우기 =========");
             System.out.println("0. 프로그램 종료");
-
-            System.out.println("2. 디지몬 밥 주기");
-            System.out.println("3. 디지몬 상태 확인하기");
-            System.out.println("4. 유기");
+            System.out.println("1. 디지몬 밥 주기");
+            System.out.println("2. 디지몬 상태 확인하기");
+            System.out.println("3. 디지몬 삭제");
             System.out.print("메뉴를 선택해 주세요: ");
 
             int input = sc.nextInt();
             switch (input) {
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    return;
                 case 1:
-//                    ds.selectDigimon();
-                    break;
-                case 2:
                     ds.feedDigimon(myDigimon,selectFood());
                     break;
-                case 4:
+                case 2:
+                    System.out.println("상태확인 구현 필요");
+                    break;
+                case 3:
                     ds.deleteDigimon();
-                    return;
-                case 9:
-                    System.out.println("프로그램을 종료합니다.");
                     return;
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
-
             }
         }
     }

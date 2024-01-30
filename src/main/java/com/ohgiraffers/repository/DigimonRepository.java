@@ -25,13 +25,13 @@ public class DigimonRepository {
 
         File file = new File(filePath);
 
-//        if (!file.exists()) {
+        if (!file.exists()) {
             digimons.add(new Digimon(1, "코로몬", Level.BABY.ordinal()));
             digimons.add(new Digimon(2, "뿔몬", Level.BABY.ordinal()));
             digimons.add(new Digimon(3, "모티몬", Level.BABY.ordinal()));
 
             saveDigimons(digimons);
-//        }
+        }
         loadDigimons();
     }
 
