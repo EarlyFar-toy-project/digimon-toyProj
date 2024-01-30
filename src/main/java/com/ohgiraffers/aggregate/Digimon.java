@@ -2,6 +2,12 @@ package com.ohgiraffers.aggregate;
 
 import java.io.Serializable;
 
+/*
+* 여기로 모여! 선택받은 아이들~
+* 크크
+*
+* */
+
 public class Digimon implements Serializable {
     private int id;
     private String name;
@@ -11,7 +17,7 @@ public class Digimon implements Serializable {
     // 필기. 희망사항
 //    private String type;
 
-
+//
     public Digimon() {
     }
 
@@ -38,12 +44,15 @@ public class Digimon implements Serializable {
     }
 
     public void setFeedGage(int feedGage) {
-        this.feedGage = feedGage;
+        this.feedGage = this.feedGage + feedGage;
+        if (this.feedGage >= 100){
+            this.feedGage = 100;
+        }
     }
 
     @Override
     public String toString() {
-        return "MyDigimon{" +
+        return "Digimon{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", level=" + level +
