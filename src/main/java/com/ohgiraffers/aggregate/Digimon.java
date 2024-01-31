@@ -13,6 +13,7 @@ public class Digimon implements Serializable {
     private String name;
     private int level;
     private int feedGage;
+    private int fatigueGage;
 
     // 필기. 희망사항
 //    private String type;
@@ -50,6 +51,13 @@ public class Digimon implements Serializable {
         }
     }
 
+    public void setFatigueGage(int fatigueGage) {
+        this.fatigueGage -= fatigueGage;        // this.fatigueGage = this.fatigueGage - fatigueGage;
+        if (this.fatigueGage <= 0){
+            this.fatigueGage = 0;
+        }
+    }
+
     @Override
     public String toString() {
         return "Digimon{" +
@@ -57,6 +65,7 @@ public class Digimon implements Serializable {
                 ", name='" + name + '\'' +
                 ", level=" + level +
                 ", feedGage=" + feedGage +
+                ", fatigueGage=" + fatigueGage +
                 '}';
     }
 }
