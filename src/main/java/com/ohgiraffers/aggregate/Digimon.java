@@ -9,10 +9,16 @@ import java.io.Serializable;
 * */
 
 public class Digimon implements Serializable {
+    public static final int MIN_GAGE = 0;
+    public static final int DEFAULT_GAGE = 30;
+    public static final int MAX_GAGE = 100;
+    public static final int STAMINA_RECOVERY_GAGE = 50;
+
     private int id;
     private String name;
     private int level;
-    private int feedGage;
+    private int feedGage = DEFAULT_GAGE;
+    private int staminaGage = DEFAULT_GAGE;
     private int fatigueGage;
 
     // 필기. 희망사항
@@ -51,6 +57,14 @@ public class Digimon implements Serializable {
         }
     }
 
+    public int getStaminaGage() {
+        return staminaGage;
+    }
+
+    public void setStaminaGage(int gageValue) {
+        this.staminaGage = gageValue;
+    }
+
     public void setFatigueGage(int fatigueGage) {
         this.fatigueGage -= fatigueGage;        // this.fatigueGage = this.fatigueGage - fatigueGage;
         if (this.fatigueGage <= 0){
@@ -65,6 +79,7 @@ public class Digimon implements Serializable {
                 ", name='" + name + '\'' +
                 ", level=" + level +
                 ", feedGage=" + feedGage +
+                ", staminaGage=" + staminaGage +
                 ", fatigueGage=" + fatigueGage +
                 '}';
     }

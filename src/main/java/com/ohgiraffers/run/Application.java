@@ -20,14 +20,14 @@ public class Application {
          *           디지몬 선택 메뉴 호출
          *
          *   2.디지몬 키우기 메뉴 리스트업
-         *   ==> 먹이, 운동, 유기, 잠자기
+         *   ==> 먹이, 운동, 삭제, 잠자기
          *
          *   3. 기능 구현
          *   - 디지몬 리스트 DB 불러오기 메소드
          *   - 먹이 메소드
          *   - 운동 메소드
          *   - 잠자기 메소드
-         *   - 유기 메소드
+         *   - 삭제 메소드
          *   - 게이지 업데이트 메소드
          *
          *   ============================
@@ -105,6 +105,7 @@ public class Application {
             System.out.println("2. 디지몬 상태 확인하기");
             System.out.println("3. 디지몬 삭제");
             System.out.println("4. 디지몬 움직이기");
+            System.out.println("5. 잠자기");
             System.out.print("메뉴를 선택해 주세요: ");
 
             int input = sc.nextInt();
@@ -123,6 +124,9 @@ public class Application {
                     return;
                 case 4:
                     ds.moveDigimon(myDigimon,selectMotion());
+                    break;
+                case 5:
+                    ds.sleepDigimon(myDigimon);
                     break;
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
