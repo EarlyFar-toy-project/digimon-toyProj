@@ -54,6 +54,10 @@ public class DigimonService {
         return dr.getMyDigimon();
     }
 
+    public void saveMyDigimon(Digimon myDigimon){
+        dr.saveMyDigimon(myDigimon);
+    }
+
     public void moveDigimon(Digimon myDigimon, Motion motion) {
         if (motion == null) {
             System.out.println("산책은 이제 그만~");
@@ -66,8 +70,4 @@ public class DigimonService {
         }
         System.out.println("뭔가 잘못된거 같은데?");
     }
-
-
-
-
 }
