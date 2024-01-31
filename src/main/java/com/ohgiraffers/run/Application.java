@@ -114,7 +114,7 @@ public class Application {
                     ds.feedDigimon(myDigimon,selectFood());
                     break;
                 case 2:
-                    System.out.println("상태확인 구현 필요");
+                    System.out.println(myDigimon);
                     break;
                 case 3:
                     ds.deleteDigimon();
@@ -122,6 +122,7 @@ public class Application {
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
             }
+            ds.saveMyDigimon(myDigimon);
         }
     }
 

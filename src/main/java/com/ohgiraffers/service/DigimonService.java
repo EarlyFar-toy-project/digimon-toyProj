@@ -52,4 +52,9 @@ public class DigimonService {
     public Digimon getMyDigimon() {
         return dr.getMyDigimon();
     }
+
+    public void saveMyDigimon(Digimon myDigimon){
+        dr.saveMyDigimon(myDigimon);
+    }
+
 }
