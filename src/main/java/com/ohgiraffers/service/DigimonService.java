@@ -44,6 +44,31 @@ public class DigimonService {
         System.out.println("다시 실행해 주세요 ");
     }
 
+    public void sleepDigimon(Digimon myDigimon) {
+        int currentStaminaGage = myDigimon.getStaminaGage();
+        int newStaminaGage = currentStaminaGage + Digimon.STAMINA_RECOVERY_GAGE;
+
+        if (newStaminaGage > Digimon.MAX_GAGE) {
+            newStaminaGage = Digimon.MAX_GAGE;
+        }
+
+        myDigimon.setStaminaGage(newStaminaGage);
+
+        dr.saveMyDigimon(myDigimon);
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("zzz...");
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("일어났다!");
+    }
+
     public int isExistMyDigimon() {
         /* 설명. 1 = 존재, 0 = 없음*/
         return dr.isExistMyDigimon() == 1 ? 1 : 0;

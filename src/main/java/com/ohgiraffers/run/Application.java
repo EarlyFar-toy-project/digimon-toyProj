@@ -103,6 +103,7 @@ public class Application {
             System.out.println("1. 디지몬 밥 주기");
             System.out.println("2. 디지몬 상태 확인하기");
             System.out.println("3. 디지몬 삭제");
+            System.out.println("4. 잠자기");
             System.out.print("메뉴를 선택해 주세요: ");
 
             int input = sc.nextInt();
@@ -119,6 +120,9 @@ public class Application {
                 case 3:
                     ds.deleteDigimon();
                     return;
+                case 4:
+                    ds.sleepDigimon(myDigimon);
+                    break;
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
             }
