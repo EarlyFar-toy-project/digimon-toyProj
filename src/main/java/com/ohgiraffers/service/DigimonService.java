@@ -39,7 +39,7 @@ public class DigimonService {
     public void deleteDigimon() {
 
         if (dr.deleteDigimon() == 1) {
-            System.out.println("디지몬을 유기하였습니다. 안녕~~~~");
+            System.out.println("디지몬을 삭제하였습니다. 안녕~~~~");
         }
         System.out.println("다시 실행해 주세요 ");
     }

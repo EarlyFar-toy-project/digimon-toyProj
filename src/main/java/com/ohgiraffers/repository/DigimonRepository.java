@@ -115,7 +115,7 @@ public class DigimonRepository {
         return file.exists() ? 1 : 0;
     }
 
-    /* 설명. 키우던 디지몬 정보 삭제(유기) */
+    /* 설명. 키우던 디지몬 정보 삭제 */
     public int deleteDigimon() {
 //        File myDigimon = new File(myPath);
         Path myDigimonFilePath = Paths.get(myPath);
