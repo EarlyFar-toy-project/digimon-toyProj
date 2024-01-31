@@ -2,6 +2,7 @@ package com.ohgiraffers.run;
 
 import com.ohgiraffers.aggregate.Digimon;
 import com.ohgiraffers.aggregate.Food;
+import com.ohgiraffers.aggregate.Motion;
 import com.ohgiraffers.service.DigimonService;
 
 import java.util.Scanner;
@@ -53,7 +54,7 @@ public class Application {
         showDigimonMenu(getMyDigimon());
     }
 
-    /* 설명. 수정해야합ㄴ디ㅏ.*/
+    /* 설명. 수정해야합니다.*/
     private static void showSelectMenu() {
         Scanner sc = new Scanner(System.in);
         /* 설명.
@@ -103,6 +104,7 @@ public class Application {
             System.out.println("1. 디지몬 밥 주기");
             System.out.println("2. 디지몬 상태 확인하기");
             System.out.println("3. 디지몬 삭제");
+            System.out.println("4. 디지몬 움직이기");
             System.out.print("메뉴를 선택해 주세요: ");
 
             int input = sc.nextInt();
@@ -119,6 +121,8 @@ public class Application {
                 case 3:
                     ds.deleteDigimon();
                     return;
+                case 4:
+                    ds.moveDigimon(myDigimon,selectMotion());
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
             }
@@ -126,6 +130,7 @@ public class Application {
         }
     }
 
+    /* 설명. 선택된 디지 */
     private static Food selectFood() {
         Food feedFood = null;
         Scanner sc = new Scanner(System.in);
@@ -163,4 +168,39 @@ public class Application {
         }
         return feedFood;
     }
+
+    /* 설명. 선택된 디지몬의 움직임을 제어할 수 있는 선택지 뷰를 보여주는 메소드입니다. */
+    private static Motion selectMotion() {
+        Motion motion = null;
+        Scanner sc = new Scanner(System.in);
+        while (motion == null) {
+            System.out.println("======== 모션 컨트롤러 ========");
+            System.out.println("좌:J, 우:L, 위:I, 아래:K, 취소: E");
+            System.out.print("어느 방향으로 가볼까요? ");
+            String inputMotion = sc.next().toUpperCase(); // 입력값 대문자로 변환합니다
+            char motionChar = inputMotion.charAt(0);      // 문자열의 첫 번째 문자를 읽어와서 char로 변환
+
+            switch (motionChar) {
+                case 'J':
+                    motion = Motion.Left;
+                    break;
+                case 'L':
+                    motion = Motion.Right;
+                    break;
+                case 'I':
+                    motion = Motion.Upward;
+                    break;
+                case 'K':
+                    motion = Motion.Downward;
+                    break;
+                case 'E':
+                    return motion;
+                default:
+                    System.out.println("다른 동작은 아직 이른거 같은데??");
+            }
+        }
+        return motion;
+    }
+
+
 }
