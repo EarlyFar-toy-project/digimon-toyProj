@@ -138,7 +138,9 @@ public class DigimonRepository {
         }
     }
 
-    public boolean moveDigomon(Digimon myDigimon, Motion motion) {
-        myDigimon.setFatigueGage(select);
+    /* 설명. 움직임을 한 번 실행하면 피로도가 -1씩 추가되는 메소드입니다. */
+    public boolean moveDigomon(Digimon myDigimon, Motion motionselected) {
+        myDigimon.setFatigueGage(motionselected.getFatigue());
+        return true;
     }
 }
