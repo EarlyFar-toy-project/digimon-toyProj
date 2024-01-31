@@ -60,12 +60,12 @@ public class DigimonService {
 
     public void moveDigimon(Digimon myDigimon, Motion motion) {
         if (motion == null) {
-            System.out.println("산책은 이제 그만~");
+            System.out.println("산책을 이제 그만~");
             return;
         }
         boolean result = dr.moveDigomon(myDigimon, motion);
         if (result) {
-            System.out.println(myDigimon.getName() + "이 " + motion + " 방향으로 한칸 움직였습니다!");
+            System.out.println(myDigimon.getName() + "이 움직이기 시작합니다!");
             return;
         }
         System.out.println("뭔가 잘못된거 같은데?");
