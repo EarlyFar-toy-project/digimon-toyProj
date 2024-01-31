@@ -12,7 +12,7 @@ public enum Motion {
         this.point = point;
     }
 
-    public int getPoint() {
+    public int getFatigue() {
         return point;
     }
 

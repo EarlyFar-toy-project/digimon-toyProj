@@ -123,6 +123,7 @@ public class Application {
                     return;
                 case 4:
                     ds.moveDigimon(myDigimon,selectMotion());
+                    break;
                 default:
                     System.out.println("번호를 제대로 다시 입력해주세요.");
             }
