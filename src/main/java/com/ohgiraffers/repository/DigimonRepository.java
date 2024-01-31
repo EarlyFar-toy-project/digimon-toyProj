@@ -3,6 +3,7 @@ package com.ohgiraffers.repository;
 import com.ohgiraffers.aggregate.Digimon;
 import com.ohgiraffers.aggregate.Food;
 import com.ohgiraffers.aggregate.Level;
+import com.ohgiraffers.aggregate.Motion;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -135,5 +136,9 @@ public class DigimonRepository {
         } catch (IOException | ClassNotFoundException e) {
             return null;
         }
+    }
+
+    public boolean moveDigomon(Digimon myDigimon, Motion motion) {
+        myDigimon.setFatigueGage(select);
     }
 }
