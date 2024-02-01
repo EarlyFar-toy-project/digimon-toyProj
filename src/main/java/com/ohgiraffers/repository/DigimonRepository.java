@@ -21,10 +21,20 @@ public class DigimonRepository {
 
     private ArrayList<Digimon> digimonList = new ArrayList<>();
 
+    /* 설명. db패키지 생성 위한 db 절대 경로 파일 */
+    File dbDirectory = new File("src/main/java/com/ohgiraffers/db");
+
     public DigimonRepository() {
         ArrayList<Digimon> digimons = new ArrayList<>();
 
         File file = new File(filePath);
+
+        /* 설명. db패키지 없을 시 패키지 생성 */
+        if (!dbDirectory.exists()) {
+            boolean dirCreate = dbDirectory.mkdir();
+
+//            System.err.println(dirCreate);
+        }
 
         if (!file.exists()) {
             digimons.add(new Digimon(1, "코로몬", Level.BABY.ordinal()));
