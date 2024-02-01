@@ -13,6 +13,7 @@ public class Digimon implements Serializable {
     public static final int DEFAULT_GAGE = 30;
     public static final int MAX_GAGE = 100;
     public static final int STAMINA_RECOVERY_GAGE = 50;
+    public static final int MAX_FEED_GAGE = 80;
 
     private int id;
     private String name;
