@@ -141,7 +141,16 @@ public class Application {
         Scanner sc = new Scanner(System.in);
         while (feedFood == null) {
             if(getMyDigimon().getFeedGage() == Digimon.MAX_GAGE) {
-                System.out.println("배불러배불러~");
+                switch (getMyDigimon().getName()) {
+                    case "코로몬":
+                        System.out.println("코로롱...코로로롱...");
+                        break;
+                    case "뿔몬" :
+                        System.out.println("뿌우우..뿌우우울!...");
+                        break;
+                    case "모티몬" :
+                        System.out.println("모티이..모티이이!....");
+                }
                 return null;
             }
             System.out.println("======== 먹이 목록 ========");
