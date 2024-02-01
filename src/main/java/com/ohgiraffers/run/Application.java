@@ -104,7 +104,7 @@ public class Application {
             System.out.println("1. 디지몬 밥 주기");
             System.out.println("2. 디지몬 상태 확인하기");
             System.out.println("3. 디지몬 삭제");
-            System.out.println("4. 디지몬 움직이기");
+            System.out.println("4. 움직이기");
             System.out.println("5. 잠자기");
             System.out.print("메뉴를 선택해 주세요: ");
 
@@ -178,7 +178,8 @@ public class Application {
     private static Motion selectMotion() {
         Motion motion = null;
         Scanner sc = new Scanner(System.in);
-        while (motion == null) {
+
+        while (true) {
             System.out.println("======== 모션 컨트롤러 ========");
             System.out.println("좌:J, 우:L, 위:I, 아래:K, 취소: E");
             System.out.print("어느 방향으로 가볼까요? ");
@@ -187,24 +188,25 @@ public class Application {
 
             switch (motionChar) {
                 case 'J':
-                    motion = Motion.Left;
+                    ds.moveDigimon(getMyDigimon(), Motion.Left);
                     break;
                 case 'L':
-                    motion = Motion.Right;
+                    ds.moveDigimon(getMyDigimon(), Motion.Right);
                     break;
                 case 'I':
-                    motion = Motion.Upward;
+                    ds.moveDigimon(getMyDigimon(), Motion.Upward);
                     break;
                 case 'K':
-                    motion = Motion.Downward;
+                    ds.moveDigimon(getMyDigimon(), Motion.Downward);
                     break;
                 case 'E':
                     return motion;
                 default:
+                    System.out.println();
                     System.out.println("다른 동작은 아직 이른거 같은데??");
+                    System.out.println();
             }
         }
-        return motion;
     }
 
 
