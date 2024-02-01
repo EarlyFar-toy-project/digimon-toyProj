@@ -117,7 +117,7 @@ public class Application {
                     ds.feedDigimon(myDigimon,selectFood());
                     break;
                 case 2:
-                    System.out.println(myDigimon);
+                    ds.viewInfo();
                     break;
                 case 3:
                     ds.deleteDigimon();

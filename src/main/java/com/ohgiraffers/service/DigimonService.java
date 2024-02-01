@@ -95,4 +95,13 @@ public class DigimonService {
         }
         System.out.println("뭔가 잘못된거 같은데?");
     }
+
+    public void viewInfo() {
+        Digimon digiInfo = dr.getMyDigimon();
+        System.out.print(digiInfo.getName() + "의 현재 상태는..."
+                + "\n레벨 : " + digiInfo.getLevel()
+                + "\n공복도 : " + digiInfo.getFeedGage()
+                + "\n피로도 : " + digiInfo.getStaminaGage()
+                + "\n입니다!\n");
+    }
 }
