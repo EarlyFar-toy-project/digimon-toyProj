@@ -23,6 +23,12 @@ public class DigimonService {
     }
 
     public void feedDigimon(Digimon myDigimon, Food selectedFood) {
+        int currentFeedGage = myDigimon.getFeedGage();
+        if(currentFeedGage == Digimon.MAX_GAGE) {
+            System.out.println(myDigimon.getName() + "이(가) 배불러 먹이를 먹지 못합니다.");
+            return;
+        }
+
         if (selectedFood == null) {
             System.out.println("먹이를 주는 것을 취소합니다.");
             return;
@@ -85,15 +91,18 @@ public class DigimonService {
 
     public void moveDigimon(Digimon myDigimon, Motion motion) {
         if (motion == null) {
-            System.out.println("산책은 이제 그만~");
+            System.out.println("================");
+            System.out.println("이제 그만 쉴까요?");
+            System.out.println("================");
+            System.out.println();
             return;
         }
         boolean result = dr.moveDigomon(myDigimon, motion);
         if (result) {
+            System.out.println();
             System.out.println(myDigimon.getName() + "이 " + motion + " 방향으로 한칸 움직였습니다!");
-            return;
+            System.out.println();
         }
-        System.out.println("뭔가 잘못된거 같은데?");
     }
 
     public void viewInfo() {
