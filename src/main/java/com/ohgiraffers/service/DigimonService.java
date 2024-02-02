@@ -22,28 +22,6 @@ public class DigimonService {
         System.out.println("해당 디지몬 정보가 없습니다.");
     }
 
-
-//    int currentFeedGage = myDigimon.getFeedGage();
-//    int newFeedGage = myDigimon.getFeedGage() + selectedFood.getPoint();
-//        if(newFeedGage > Digimon.MAX_FEED_GAGE) {
-//        newFeedGage = Digimon.MAX_FEED_GAGE;
-//        System.out.println("배불러");
-//        return;
-//    }
-//        myDigimon.setFeedGage(currentFeedGage);
-
-
-//    int currentStaminaGage = myDigimon.getStaminaGage();
-//    int newStaminaGage = currentStaminaGage + Digimon.STAMINA_RECOVERY_GAGE;
-//
-//        if (newStaminaGage > Digimon.MAX_GAGE) {
-//        newStaminaGage = Digimon.MAX_GAGE;
-//    }
-//
-//        myDigimon.setStaminaGage(newStaminaGage);
-//
-//        dr.saveMyDigimon(myDigimon);
-
     public void feedDigimon(Digimon myDigimon, Food selectedFood) {
         int currentFeedGage = myDigimon.getFeedGage();
         if(currentFeedGage == Digimon.MAX_GAGE) {
