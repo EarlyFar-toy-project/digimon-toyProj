@@ -107,7 +107,7 @@ public class Application {
             System.out.println("4. 디지몬 움직이기");
             System.out.println("5. 잠자기");
             System.out.print("메뉴를 선택해 주세요: ");
-
+//            System.out.println(myDigimon.getFeedGage());
             int input = sc.nextInt();
             switch (input) {
                 case 0:
@@ -140,6 +140,19 @@ public class Application {
         Food feedFood = null;
         Scanner sc = new Scanner(System.in);
         while (feedFood == null) {
+            if(getMyDigimon().getFeedGage() == Digimon.MAX_GAGE) {
+                switch (getMyDigimon().getName()) {
+                    case "코로몬":
+                        System.out.println("코로롱...코로로롱...");
+                        break;
+                    case "뿔몬" :
+                        System.out.println("뿌우우..뿌우우울!...");
+                        break;
+                    case "모티몬" :
+                        System.out.println("모티이..모티이이!....");
+                }
+                return null;
+            }
             System.out.println("======== 먹이 목록 ========");
             System.out.println("0. Meat");
             System.out.println("1. Fish");

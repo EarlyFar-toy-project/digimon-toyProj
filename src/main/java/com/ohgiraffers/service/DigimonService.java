@@ -23,6 +23,12 @@ public class DigimonService {
     }
 
     public void feedDigimon(Digimon myDigimon, Food selectedFood) {
+        int currentFeedGage = myDigimon.getFeedGage();
+        if(currentFeedGage == Digimon.MAX_GAGE) {
+            System.out.println(myDigimon.getName() + "이(가) 배불러 먹이를 먹지 못합니다.");
+            return;
+        }
+
         if (selectedFood == null) {
             System.out.println("먹이를 주는 것을 취소합니다.");
             return;
